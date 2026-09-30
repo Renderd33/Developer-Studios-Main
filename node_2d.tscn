@@ -4,6 +4,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj07d"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_3nt4x"]
+
 [node name="Node2D" type="Node2D" unique_id=435569380]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1301633226]
@@ -14,3 +16,8 @@ shape = SubResource("CircleShape2D_hj07d")
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=575359351]
 position = Vector2(502, 222)
 texture = ExtResource("1_wtcfe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=568241948]
+position = Vector2(511, 479.00003)
+scale = Vector2(1211.75, 177.5)
+mesh = SubResource("QuadMesh_3nt4x")
