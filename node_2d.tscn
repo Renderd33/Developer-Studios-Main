@@ -16,5 +16,13 @@ position = Vector2(64, 96)
 texture = ExtResource("1_wtcfe")
 
 [node name="Icon2" type="Sprite2D" parent="CharacterBody2D" unique_id=238989069]
-position = Vector2(64, 96)
+position = Vector2(692, 186)
+texture = ExtResource("1_wtcfe")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1045013444]
+position = Vector2(341, 209)
+texture = ExtResource("1_wtcfe")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=336185791]
+position = Vector2(265, -21)
 texture = ExtResource("1_wtcfe")
