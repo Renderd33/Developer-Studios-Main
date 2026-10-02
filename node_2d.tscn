@@ -27,9 +27,12 @@ position = Vector2(511, 479.00003)
 scale = Vector2(1000, 146.48302)
 mesh = SubResource("QuadMesh_3nt4x")
 
-[node name="Area2D" type="Area2D" parent="MeshInstance2D" unique_id=176975288]
+[node name="RigidBody2D" type="RigidBody2D" parent="MeshInstance2D" unique_id=215847860]
 scale = Vector2(10, 9.999999)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Area2D" unique_id=763996162]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/RigidBody2D" unique_id=763996162]
 visible = false
 shape = SubResource("RectangleShape2D_3nt4x")
+
+[node name="Area2D" type="Area2D" parent="MeshInstance2D" unique_id=176975288]
+scale = Vector2(10, 9.999999)
