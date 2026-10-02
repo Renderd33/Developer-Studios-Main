@@ -1,11 +1,12 @@
-extends Node
+extends CharacterBody2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var speed = 700
 
+func get_input():
+	var i_direction = Input.get_vector("Left", "Right", "Up", "Down")
+	velocity = i_direction * speed
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float):
+	get_input()
+	move_and_slide()
