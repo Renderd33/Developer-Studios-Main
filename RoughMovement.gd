@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 200
+var speed = 500
 var gravity = 30
 var jumpForce = 500
 
@@ -13,7 +13,7 @@ func _physics_process(delta: float):
 		velocity.x -= speed * delta * 25
 	if Input.is_action_pressed("Right"):
 		velocity.x += speed * delta * 25
-	if Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Space"):
+	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Space")) and is_on_floor():
 		velocity.y -= jumpForce
 	move_and_slide()
 #func get_input(): 
