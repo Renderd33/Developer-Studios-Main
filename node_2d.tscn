@@ -1,34 +1,37 @@
 [gd_scene format=3 uid="uid://buvoxkpjj2c3b"]
 
-[ext_resource type="Script" uid="uid://bri87msiau5ei" path="res://RoughMovement.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://do36gd8knlxih" path="res://character_body_2d.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://icon.svg" id="1_wtcfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(124, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hr8o"]
-size = Vector2(850, 101)
+size = Vector2(850, 125)
 
 [node name="Node2D" type="Node2D" unique_id=435569380]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1301633226]
+position = Vector2(572, 329)
 script = ExtResource("1_0e48y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=751993562]
-position = Vector2(501, 221)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=575359351]
-position = Vector2(502, 222)
 texture = ExtResource("1_wtcfe")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D/Icon" unique_id=211128418]
+position = Vector2(4, -4)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=93029439]
+position = Vector2(583, 582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1496667437]
-position = Vector2(497, 396)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_2hr8o")
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=2027999349]
-position = Vector2(501, 388.5)
-scale = Vector2(6.65625, 1)
+position = Vector2(0, 1)
+scale = Vector2(6.65625, 1.015625)
 texture = ExtResource("1_wtcfe")

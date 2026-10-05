@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var speed = 500
 var gravity = 30
-var jumpForce = 500
+var jumpForce = 1000
 
 func _physics_process(delta: float):
 	velocity.x = 0
