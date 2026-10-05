@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://bri87msiau5ei" path="res://RoughMovement.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://icon.svg" id="1_wtcfe"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hj07d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(124, 122)
 
-[sub_resource type="QuadMesh" id="QuadMesh_3nt4x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nt4x"]
-size = Vector2(0.9991758, 1.022536)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hr8o"]
+size = Vector2(850, 101)
 
 [node name="Node2D" type="Node2D" unique_id=435569380]
 
@@ -16,23 +15,20 @@ size = Vector2(0.9991758, 1.022536)
 script = ExtResource("1_0e48y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=751993562]
-shape = SubResource("CircleShape2D_hj07d")
+position = Vector2(501, 221)
+shape = SubResource("RectangleShape2D_epypp")
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=575359351]
 position = Vector2(502, 222)
 texture = ExtResource("1_wtcfe")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=568241948]
-position = Vector2(511, 479.00003)
-scale = Vector2(1000, 146.48302)
-mesh = SubResource("QuadMesh_3nt4x")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=93029439]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="MeshInstance2D" unique_id=215847860]
-scale = Vector2(10, 9.999999)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1496667437]
+position = Vector2(497, 396)
+shape = SubResource("RectangleShape2D_2hr8o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/RigidBody2D" unique_id=763996162]
-visible = false
-shape = SubResource("RectangleShape2D_3nt4x")
-
-[node name="Area2D" type="Area2D" parent="MeshInstance2D" unique_id=176975288]
-scale = Vector2(10, 9.999999)
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=2027999349]
+position = Vector2(501, 388.5)
+scale = Vector2(6.65625, 1)
+texture = ExtResource("1_wtcfe")
