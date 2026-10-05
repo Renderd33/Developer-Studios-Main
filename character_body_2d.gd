@@ -2,11 +2,9 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-<<<<<<< Updated upstream
-const JUMP_VELOCITY = -400.0
-=======
+
 const JUMP_VELOCITY = -500.0
->>>>>>> Stashed changes
+
 
 
 func _physics_process(delta: float) -> void:
@@ -24,10 +22,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-<<<<<<< Updated upstream
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-=======
 		velocity.x = move_toward(velocity.x, velocity.x / 1.03, SPEED)
->>>>>>> Stashed changes
+
 
 	move_and_slide()
