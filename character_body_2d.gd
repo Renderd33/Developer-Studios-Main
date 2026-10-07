@@ -5,7 +5,13 @@ const SPEED = 300.0
 
 const JUMP_VELOCITY = -500.0
 
-
+func ifSlide(slide:float) -> float:
+	
+	if is_on_floor():
+		slide = slide / 1.03
+		
+	return slide
+		
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, velocity.x / 1.03, SPEED)
+		velocity.x = move_toward(velocity.x, ifSlide(velocity.x), SPEED)
 
 
 	move_and_slide()
