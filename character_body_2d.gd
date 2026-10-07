@@ -14,12 +14,13 @@ func ifSlide(slide:float) -> float:
 	return slide
 		
 
-func sprint(speed:float) -> float:
+func sprint(run:float) -> float:
+	#need to check if direction == true
+	if Input.is_action_pressed("Shift") == true and is_on_floor() and run < 1000:
+		run += run / 1.1
+		
 	
-	if is_on_floor() and speed < 1000:
-		speed = speed * 1.1
-	
-	return speed
+	return run
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -36,7 +37,8 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, ifSlide(velocity.x), SPEED)
+		velocity.x = move_toward(velocity.x, sprint(ifSlide(velocity.x)), SPEED)
+	
 
 
 	move_and_slide()
