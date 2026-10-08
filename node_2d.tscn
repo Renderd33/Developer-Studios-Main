@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buvoxkpjj2c3b"]
 
-[ext_resource type="Script" uid="uid://do36gd8knlxih" path="res://character_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Character Movement.gd" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://dnkh5qi8r0aq6" path="res://static_body_2d.tscn" id="3_epypp"]
 
@@ -11,7 +11,7 @@ size = Vector2(124, 122)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1301633226]
 position = Vector2(572, 329)
-script = ExtResource("1_0e48y")
+script = ExtResource("1_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=751993562]
 shape = SubResource("RectangleShape2D_epypp")
