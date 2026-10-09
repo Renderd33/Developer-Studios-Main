@@ -48,8 +48,9 @@ func _physics_process(delta: float) -> void:
 	#                            Somethings a little off when you change directions on the floor 
 	#                            you just lose all your momentum when you do so idk try to do something
 	#                            about that, also make a copy of this code before you mess with it.
-	#                            nvm I fix it  think. how do you feel about the movement.
-	#                            
+	#                            nvm I fix it  think. how do you feel about the movement. 
+	#                            (ricardo -- it runs good, might try tweaking some stuff but honestly, it works how its wanted)
+	
 	else:
 		if is_on_floor() and charMovement > SPEED:#<------- this slows the speed down to the min
 			charMovement -= charMovement / 1.9
