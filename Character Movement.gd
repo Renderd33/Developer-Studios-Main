@@ -14,6 +14,11 @@ func ifSlide(slide:float) -> float: #<---- this will make the object slow down i
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	
+	if Input.is_action_just_pressed("LeftClick"):
+		var whereMouse = get_local_mouse_position()#<---- this gets the location ofthe mouse compared to the player
+		print(whereMouse)
+		
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
