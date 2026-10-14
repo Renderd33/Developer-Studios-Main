@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction and is_on_floor():# <------------------------------------- if pressing a left or right botton
 		if Input.is_action_pressed("Shift") and is_on_floor() and charMovement < SPEED * 2:
-			charMovement = charMovement * 1.03#<------- this is the accelurtion and above is the condition of sprint
+			charMovement = charMovement * 1.03 + ifSlide(charMovement)#<------- this is the accelurtion and above is the condition of sprint
 		if (not Input.is_action_pressed("Shift")) and is_on_floor():#<----- slows down if still moving
 			charMovement = charMovement  * 0.97
 		if charMovement <= SPEED: #<---- this makes sure the speed doesn't fall below the min
