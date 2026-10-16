@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dron0nbck1bqs"]
+
+[ext_resource type="Texture2D" uid="uid://viiqcra8a0sa" path="res://floor.png" id="1_afsg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hr8o"]
+size = Vector2(850, 125)
+
+[node name="StaticBody2D3" type="StaticBody2D" unique_id=216336576]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113429078]
+position = Vector2(0, 582)
+shape = SubResource("RectangleShape2D_2hr8o")
+
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D" unique_id=1201086089]
+top_level = true
+position = Vector2(1615.9999, 581.375)
+scale = Vector2(13.109375, 1.92578)
+texture = ExtResource("1_afsg2")
