@@ -28,6 +28,28 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("Down"):
 		if distToAnchor >= maxRopeLength:
 			return
-		
+	elif Input.is_action_pressed("Up"):
+		if distToAnchor <= minRopeLength:
+			return
+			
 		pin_joint_2d.node_b = ""
 		player_anchor.global_position += player_anchor.global_transform.y * speed / 2
+		pin_joint_2d.node_b = player_anchor.get_path()
+		
+		if Input.is_action_pressed("LeftClick"):
+			leave_rope()
+
+func leave_rope():
+	await get_tree().create_timer(0,1).timeout
+	
+	var player = get_tree().get_first_node_in_group("Player")
+	player.reparent(get_tree().current_scene)
+	player.set_active(true)
+	player.rotation = 0
+	
+	queue_free()
+	
+
+func _process(delta: float) -> void:
+	line_2d.points[0] = player_anchor.global_position - global_position
+	line_2d.points[1] = anchor.global_position - global_position

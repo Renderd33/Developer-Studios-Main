@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+
 const SPEED = 500.0 # this is the speed scaler
 
 const JUMP_VELOCITY = -500.0 # idk what this does

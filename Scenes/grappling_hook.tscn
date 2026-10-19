@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cy1tjfaoeh08e"]
+
+[ext_resource type="Script" uid="uid://dpyarfcg8r1s6" path="res://Scripts/grappling_hook.gd" id="1_30ksf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hr8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj07d"]
+
+[node name="Grappling Hook" type="Node2D" unique_id=499872408]
+script = ExtResource("1_30ksf")
+
+[node name="Anchor" type="StaticBody2D" parent="." unique_id=2037475224]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor" unique_id=631539744]
+shape = SubResource("RectangleShape2D_2hr8o")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Anchor" unique_id=129939404]
+unique_name_in_owner = true
+node_a = NodePath("..")
+node_b = NodePath("../../PlayerAnchor")
+
+[node name="PlayerAnchor" type="RigidBody2D" parent="." unique_id=1873470322]
+unique_name_in_owner = true
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAnchor" unique_id=1487957596]
+shape = SubResource("RectangleShape2D_hj07d")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1018957607]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 101, 0, 0)
+width = 5.0

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://buvoxkpjj2c3b"]
 
-[ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Character Movement.gd" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://icon.svg" id="1_wtcfe"]
-[ext_resource type="PackedScene" uid="uid://dnkh5qi8r0aq6" path="res://static_body_2d.tscn" id="3_epypp"]
-[ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
-[ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://killzone.tscn" id="5_q6r6c"]
-[ext_resource type="Script" uid="uid://dpyarfcg8r1s6" path="res://grappling_hook.gd" id="6_kdubu"]
+[ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Scripts/Character Movement.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://Images/icon.svg" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://dnkh5qi8r0aq6" path="res://Scenes/static_body_2d.tscn" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://Images/dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://Scenes/killzone.tscn" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://dpyarfcg8r1s6" path="res://Scripts/grappling_hook.gd" id="6_kdubu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(124, 122)
@@ -31,6 +31,9 @@ texture = ExtResource("1_wtcfe")
 
 [node name="Camera2D" type="Camera2D" parent="Player/Icon" unique_id=211128418]
 position = Vector2(4, -4)
+
+[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1761253961]
+target_position = Vector2(200, 0)
 
 [node name="StaticBody2D" parent="." unique_id=1743744176 instance=ExtResource("3_epypp")]
 

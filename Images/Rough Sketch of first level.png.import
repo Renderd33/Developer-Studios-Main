@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pe8qbo7pxext"
-path="res://.godot/imported/Rough Sketch of first level.png-9c6071faba697540328cf34e4261afa3.ctex"
+path="res://.godot/imported/Rough Sketch of first level.png-6e9ae097943f3b7259c97d3ac3aa4df5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rough Sketch of first level.png"
-dest_files=["res://.godot/imported/Rough Sketch of first level.png-9c6071faba697540328cf34e4261afa3.ctex"]
+source_file="res://Images/Rough Sketch of first level.png"
+dest_files=["res://.godot/imported/Rough Sketch of first level.png-6e9ae097943f3b7259c97d3ac3aa4df5.ctex"]
 
 [params]
 
