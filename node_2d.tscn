@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://viiqcra8a0sa" path="res://floor.png" id="5_kdubu"]
 [ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://killzone.tscn" id="5_q6r6c"]
-[ext_resource type="Script" uid="uid://dpyarfcg8r1s6" path="res://grappling_hook.gd" id="6_kdubu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(124, 122)
@@ -13,9 +12,9 @@ size = Vector2(124, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1t0"]
 size = Vector2(1.6000047, 1.6375003)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hr8o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nt4x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj07d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bcqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khvjw"]
 size = Vector2(2295.5, 166)
@@ -56,30 +55,21 @@ texture = ExtResource("4_0hol4")
 position = Vector2(3682.9998, 3015)
 scale = Vector2(3000, 100)
 
-<<<<<<< HEAD
 [node name="grapple" type="Node2D" parent="." unique_id=1179109340]
 position = Vector2(-992, -55)
-=======
-[node name="Grappling Hook" type="Node2D" parent="." unique_id=732450634]
-script = ExtResource("6_kdubu")
->>>>>>> c04f362a3649375e73418187a5f044a0c42733a9
 
-[node name="Anchor" type="StaticBody2D" parent="Grappling Hook" unique_id=1707072859]
-unique_name_in_owner = true
+[node name="StaticBody2D" type="StaticBody2D" parent="grapple" unique_id=1736590902]
+position = Vector2(-100, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grappling Hook/Anchor" unique_id=802489116]
-shape = SubResource("RectangleShape2D_2hr8o")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grapple/StaticBody2D" unique_id=857718837]
+shape = SubResource("RectangleShape2D_3nt4x")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Grappling Hook/Anchor" unique_id=1061802138]
-unique_name_in_owner = true
-node_a = NodePath("..")
-node_b = NodePath("../../PlayerAnchor")
+[node name="RigidBody2D" type="RigidBody2D" parent="grapple" unique_id=356947154]
+position = Vector2(-102, 111)
 
-[node name="PlayerAnchor" type="RigidBody2D" parent="Grappling Hook" unique_id=1090187617]
-unique_name_in_owner = true
-position = Vector2(0, 100)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grapple/RigidBody2D" unique_id=893140719]
+shape = SubResource("RectangleShape2D_4bcqu")
 
-<<<<<<< HEAD
 [node name="Line2D" type="Line2D" parent="grapple" unique_id=480740453]
 position = Vector2(-100, 0)
 points = PackedVector2Array(0, 0)
@@ -143,12 +133,3 @@ shape = SubResource("RectangleShape2D_khvjw")
 position = Vector2(-3.0517578e-05, 171.50008)
 scale = Vector2(35.812504, 7.9531255)
 texture = ExtResource("5_kdubu")
-=======
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grappling Hook/PlayerAnchor" unique_id=294683787]
-shape = SubResource("RectangleShape2D_hj07d")
-
-[node name="Line2D" type="Line2D" parent="Grappling Hook" unique_id=1831955743]
-unique_name_in_owner = true
-points = PackedVector2Array(0, 101, 0, 0)
-width = 5.0
->>>>>>> c04f362a3649375e73418187a5f044a0c42733a9
