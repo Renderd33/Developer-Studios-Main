@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0 # this is the speed scaler
 
-const JUMP_VELOCITY = -500.0 # idk what this does
+const JUMP_VELOCITY = -700.0 # idk what this does
 
 var charMovement = SPEED # this is so the speed will change
 
@@ -38,8 +38,8 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("Left", "Right")
 	
-	if direction and is_on_floor():# <------------------------------------- if pressing a left or right botton
-		if Input.is_action_pressed("Shift") and is_on_floor() and charMovement < SPEED * 2:
+	if direction:# <------------------------------------- if pressing a left or right botton
+		if Input.is_action_pressed("Shift") and is_on_floor() and charMovement < SPEED * 1.8:
 			charMovement = charMovement * 1.03 + ifSlide(charMovement)#<------- this is the accelurtion and above is the condition of sprint
 		if (not Input.is_action_pressed("Shift")) and is_on_floor():#<----- slows down if still moving
 			charMovement = charMovement  * 0.97
