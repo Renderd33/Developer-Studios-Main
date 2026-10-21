@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://buvoxkpjj2c3b"]
 
-[ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Character Movement.gd" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://icon.svg" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://viiqcra8a0sa" path="res://floor.png" id="5_kdubu"]
-[ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://killzone.tscn" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Scripts/Character Movement.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://Images/icon.svg" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://Images/dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://viiqcra8a0sa" path="res://Images/floor.png" id="5_kdubu"]
+[ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://Scenes/killzone.tscn" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://dpyarfcg8r1s6" path="res://Scripts/grappling_hook.gd" id="5_tx0tn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(124, 122)
@@ -34,6 +35,9 @@ texture = ExtResource("1_wtcfe")
 [node name="Camera2D" type="Camera2D" parent="Player/Icon" unique_id=211128418]
 position = Vector2(4, -4)
 
+[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1390892548]
+target_position = Vector2(400, 0)
+
 [node name="Spike" type="StaticBody2D" parent="." unique_id=1309092472]
 position = Vector2(1843, 1287)
 
@@ -55,24 +59,36 @@ texture = ExtResource("4_0hol4")
 position = Vector2(3682.9998, 3015)
 scale = Vector2(3000, 100)
 
-[node name="grapple" type="Node2D" parent="." unique_id=1179109340]
+[node name="Grappling Hook" type="Node2D" parent="." unique_id=1179109340]
 position = Vector2(-992, -55)
+script = ExtResource("5_tx0tn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="grapple" unique_id=1736590902]
+[node name="Anchor" type="StaticBody2D" parent="Grappling Hook" unique_id=1736590902]
+unique_name_in_owner = true
 position = Vector2(-100, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="grapple/StaticBody2D" unique_id=857718837]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grappling Hook/Anchor" unique_id=857718837]
 shape = SubResource("RectangleShape2D_3nt4x")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="grapple" unique_id=356947154]
+[node name="PinJoint2D" type="PinJoint2D" parent="Grappling Hook/Anchor" unique_id=2010345839]
+unique_name_in_owner = true
+node_a = NodePath("..")
+node_b = NodePath("../../PlayerAnchor")
+
+[node name="PlayerAnchor" type="RigidBody2D" parent="Grappling Hook" unique_id=356947154]
+unique_name_in_owner = true
 position = Vector2(-102, 111)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="grapple/RigidBody2D" unique_id=893140719]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grappling Hook/PlayerAnchor" unique_id=893140719]
 shape = SubResource("RectangleShape2D_4bcqu")
 
-[node name="Line2D" type="Line2D" parent="grapple" unique_id=480740453]
+[node name="Line2D" type="Line2D" parent="Grappling Hook" unique_id=480740453]
+unique_name_in_owner = true
 position = Vector2(-100, 0)
-points = PackedVector2Array(0, 0)
+scale = Vector2(0.5, 1)
+points = PackedVector2Array(0, 0, -2, 112)
+texture = ExtResource("1_wtcfe")
+texture_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=357597619]
 position = Vector2(343, 1583)
@@ -132,4 +148,16 @@ shape = SubResource("RectangleShape2D_khvjw")
 [node name="Floor" type="Sprite2D" parent="StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/CollisionShape2D" unique_id=1254598289]
 position = Vector2(-3.0517578e-05, 171.50008)
 scale = Vector2(35.812504, 7.9531255)
+texture = ExtResource("5_kdubu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D" unique_id=436457270]
+position = Vector2(-7341, -129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D" unique_id=333232861]
+position = Vector2(173, 2752)
+shape = SubResource("RectangleShape2D_khvjw")
+
+[node name="Floor" type="Sprite2D" parent="StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/StaticBody2D/CollisionShape2D" unique_id=1719381256]
+position = Vector2(1.9999695, -5.9999695)
+scale = Vector2(35.812504, 2.406249)
 texture = ExtResource("5_kdubu")
