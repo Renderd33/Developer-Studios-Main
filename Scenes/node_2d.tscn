@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://docckg266mjd3" path="res://Scripts/Character Movement.gd" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://d04aeigorso2u" path="res://Images/icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://b7omcc2sdqx6a" path="res://Scenes/grapple_hook_controller.gd" id="3_wjtap"]
 [ext_resource type="Texture2D" uid="uid://bmiddd1n5q11j" path="res://Images/dfixr6b-d1483b50-07a2-48dd-9b52-a9796f626b49.png" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://viiqcra8a0sa" path="res://Images/floor.png" id="5_kdubu"]
 [ext_resource type="PackedScene" uid="uid://dqws5cl3n3cxv" path="res://Scenes/killzone.tscn" id="5_q6r6c"]
@@ -35,8 +36,14 @@ texture = ExtResource("1_wtcfe")
 [node name="Camera2D" type="Camera2D" parent="Player/Icon" unique_id=211128418]
 position = Vector2(4, -4)
 
-[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1390892548]
-target_position = Vector2(400, 0)
+[node name="GrappleHookController" type="Node2D" parent="Player" unique_id=941854953]
+script = ExtResource("3_wjtap")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player/GrappleHookController" unique_id=1390892548]
+target_position = Vector2(800, 0)
+
+[node name="Line2D" type="Line2D" parent="Player/GrappleHookController" unique_id=1981805028]
+points = PackedVector2Array(0, 0, 0, 0)
 
 [node name="Spike" type="StaticBody2D" parent="." unique_id=1309092472]
 position = Vector2(1843, 1287)
