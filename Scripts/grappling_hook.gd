@@ -14,7 +14,7 @@ func start_hook(hookPosition):
 	
 	anchor.global_position = hookPosition
 	
-	var player = get_tree().get_first_node_in_group("player")
+	var player = get_tree().get_first_node_in_group("Player")
 	player_anchor.global_position = player.global_position
 	player.reparent(player_anchor)
 
