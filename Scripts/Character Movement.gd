@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-#@onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
-#const le_grapple = preload("res://Scenes/grappling_hook.tscn")
+@onready var grapC := $GrappleHookController
 
 const SPEED = 500.0 # this is the speed scaler
 const JUMP_VELOCITY = -700.0 # idk what this does

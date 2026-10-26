@@ -1,9 +1,9 @@
 extends Node2D
 
 #Hooke's Law variables
-@export var rest_length = 2.0
-@export var stiffness = 10.0
-@export var damping = 2.0
+@export var rest_length = 20.0
+@export var stiffness = 20
+@export var damping = 4
 
 @onready var player := get_parent()
 @onready var ray := $RayCast2D
@@ -16,9 +16,9 @@ var target: Vector2
 func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("grapple"):
+	if Input.is_action_just_pressed("LeftClick"):
 		launch()
-	if Input.is_action_just_released("grapple"):
+	if Input.is_action_just_released("LeftClick"):
 		retract()
 	
 	if launched:
@@ -28,10 +28,12 @@ func launch():
 	if ray.is_colliding():
 		launched = true
 		target = ray.get_collision_point()
+		rope.show()
 		
 func retract():
 	launched = false
-
+	rope.hide()
+	
 func handle_grapple(delta):
 	var target_dir = player.global_position.direction_to(target)
 	var target_dist = player.global_position.distance_to(target)
@@ -46,7 +48,7 @@ func handle_grapple(delta):
 		var spring_force = target_dir * spring_force_mag
 		
 		var velocity_dot = player.velocity.dot(target_dir)
-		var damping = -damping + velocity_dot * target_dir
+		var damping = -damping * velocity_dot * target_dir
 		
 		force = spring_force + damping
 	
