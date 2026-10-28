@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var grapC := $GrappleHookController
+
+const le_grapple = preload("res://Scenes/grappling_hook.tscn")
 
 const SPEED = 500.0 # this is the speed scaler
 const JUMP_VELOCITY = -700.0 # idk what this does
 var charMovement = SPEED # this is so the speed will change
 
-#func _ready() -> void:
-	#add_to_group("Player")
+func _ready() -> void:
+	add_to_group("Player")
 
 func respawn():
 	self.global_position = Vector2(572,329)
@@ -20,14 +22,14 @@ func ifSlide(slide:float) -> float: #<---- this will make the object slow down i
 	return slide
 
 func _physics_process(delta: float) -> void:
-	#set_raycast_direction()
+	set_raycast_direction()
 	
 	# Add the gravity.	
 	if Input.is_action_just_pressed("LeftClick"):
 		var whereMouse = get_local_mouse_position()#<---- this gets the location ofthe mouse compared to the player
 		print(whereMouse)
-		#use_le_grapple()
-		#return
+		use_le_grapple()
+		return
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -74,27 +76,27 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-#func set_active(boi: bool):
-	#set_physics_process(boi)
-	#collision_shape_2d.disabled = not boi
+func set_active(boi: bool):
+	set_physics_process(boi)
+	collision_shape_2d.disabled = not boi
 
-#func use_le_grapple():
-	#if not ray_cast_2d.is_colliding():
-	#	return
+func use_le_grapple():
+	if not ray_cast_2d.is_colliding():
+		return
 	
-	#set_active(false)
+	set_active(false)
 	
-	#var startOffset = Vector2(0, -30)
-	#global_position += startOffset
+	var startOffset = Vector2(0, -30)
+	global_position += startOffset
 	
-	#var le_grapple_node = le_grapple.instantiate()
-	#get_tree().current_scene.add_child(le_grapple_node)
-	#le_grapple_node.start_hook(ray_cast_2d.get_collision_point())
+	var le_grapple_node = le_grapple.instantiate()
+	get_tree().current_scene.add_child(le_grapple_node)
+	le_grapple_node.start_hook(ray_cast_2d.get_collision_point())
 
-#func set_raycast_direction():
-	#var lookDirection = Input.get_vector("Left","Right","Up","Down")
+func set_raycast_direction():
+	var lookDirection = Input.get_vector("Left","Right","Up","Down")
 	
-	#if lookDirection.y > 0:
-	#	return
+	if lookDirection.y > 0:
+		return
 		
-	#ray_cast_2d.look_at(global_position + lookDirection)
+	ray_cast_2d.look_at(global_position + lookDirection)
