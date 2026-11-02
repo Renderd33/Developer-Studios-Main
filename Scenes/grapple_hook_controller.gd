@@ -4,6 +4,8 @@ extends Node2D
 @export var rest_length = 20.0
 @export var stiffness = 20
 @export var damping = 4
+@export var limitChecker = 0
+@export var limit = true
 
 @onready var player := get_parent()
 @onready var ray := $RayCast2D
@@ -15,7 +17,8 @@ var target: Vector2
  
 func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position())
-	
+	if player.is_on_floor():
+		limitChecker = 0
 	if Input.is_action_just_pressed("LeftClick"):
 		launch()
 	if Input.is_action_just_released("LeftClick"):
@@ -25,11 +28,13 @@ func _process(delta: float) -> void:
 		handle_grapple(delta)
 
 func launch():
-	if ray.is_colliding():
-		launched = true
-		target = ray.get_collision_point()
-		rope.show()
-		
+	if limitChecker == 0:
+		if ray.is_colliding():
+			launched = true
+			target = ray.get_collision_point()
+			rope.show()
+			limitChecker += 1
+	
 func retract():
 	launched = false
 	rope.hide()
