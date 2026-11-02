@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@onready var playcam:= $Icon/Playcam
-@onready var mapcam:= $"../Mapcam"
+@onready var playcam:= $Playcam
+@onready var mapcam:= $Mapcam
 #above are the cams
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("Cam"):
 		
 		if playcam.enabled:
@@ -59,6 +60,13 @@ func _physics_process(delta: float) -> void:
 			playcam.enabled = true
 			mapcam.enabled = false
 			print("map")
+=======
+	#if Input.is_action_just_pressed()"Cam"):
+		
+		#if playcam.enabled:
+			
+		#elif mapcam:
+>>>>>>> 0dbe4952e030f1a6a084d215bbaa81da24ce2342
 
 		#do not change if to while it will crash
 	
