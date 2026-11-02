@@ -2,7 +2,7 @@ extends Node2D
 
 #Hooke's Law variables
 @export var rest_length = 20.0
-@export var stiffness = 20
+@export var stiffness = 40
 @export var damping = 4
 @export var limitChecker = 0
 @export var limit = true
