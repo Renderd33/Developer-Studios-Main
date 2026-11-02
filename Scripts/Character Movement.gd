@@ -1,4 +1,9 @@
 extends CharacterBody2D
+@onready var Movecam: Camera2D = $MoveCamera
+
+@onready var playcam:= $Icon/Playcam
+@onready var mapcam:= $"../Mapcam"
+#above are the cams
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var grapC := $GrappleHookController
@@ -19,6 +24,7 @@ func ifSlide(slide:float) -> float: #<---- this will make the object slow down i
 		
 	return slide
 
+
 func _physics_process(delta: float) -> void:
 	#set_raycast_direction()
 	
@@ -36,10 +42,24 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Space") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	if Input.is_action_pressed("Cam"):
+		
+		if playcam.enabled:
+			mapcam.enabled = true
+			playcam.enabled = false
+			
+		if mapcam.enabled:
+			playcam.enabled = true
+			mapcam.enabled = false
+			
+		#do not change if to while it will crash
+	
+	
 	
 	var direction := Input.get_axis("Left", "Right")
 	
