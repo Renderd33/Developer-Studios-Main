@@ -11,12 +11,12 @@ extends CharacterBody2D
 const SPEED = 500.0 # this is the speed scaler
 const JUMP_VELOCITY = -700.0 # idk what this does
 var charMovement = SPEED # this is so the speed will change
+var grappleMoveCheck = 1
 
-#func _ready() -> void:
-	#add_to_group("Player")
+#---------------------------------------------------------------------------------------------
 
 func respawn():
-	self.global_position = Vector2(572,329)
+	self.global_position = Vector2(572,-1000)
 
 func ifSlide(slide:float) -> float: #<---- this will make the object slow down if it is on the floor
 	if is_on_floor():
@@ -42,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Space") and (is_on_floor() or grapC.launched):
 		velocity.y = JUMP_VELOCITY
-	
 	# Get the input direction and handle the movement/deceleration.
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -78,7 +77,13 @@ func _physics_process(delta: float) -> void:
 		if charMovement <= SPEED: #<---- this makes sure the speed doesn't fall below the min
 			charMovement = SPEED
 		
-		velocity.x = direction * charMovement#<--------- makes the object move
+		#AY FUCK, REMEMBER TO DO THIS	
+		#if (not is_on_floor() and grapC.launched):
+		#	grappleMoveCheck = 0.
+		#else:
+		#	grappleMoveCheck = 1
+		
+		velocity.x = direction * charMovement * grappleMoveCheck#<--------- makes the object move
 	#                            
 	#
 	#                            hey, made things to help me read the code so I hope they help you.

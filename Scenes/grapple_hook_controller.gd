@@ -2,8 +2,9 @@ extends Node2D
 
 #Hooke's Law variables
 @export var rest_length = 20.0
-@export var stiffness = 40
-@export var damping = 4
+@export var stiffness = 18
+@export var damping = 5
+
 @export var limitChecker = 0
 @export var limit = true
 
@@ -48,6 +49,11 @@ func handle_grapple(delta):
 	var force = Vector2.ZERO
 
 #whole bunch of physics shit below	
+
+#for the first if statement below, make sure to check it
+	if displacement > 1000:
+		retract()
+		
 	if displacement > 0:
 		var spring_force_mag = stiffness * displacement
 		var spring_force = target_dir * spring_force_mag
@@ -59,6 +65,6 @@ func handle_grapple(delta):
 	
 	player.velocity += force * delta
 	update_rope()
-	 
+	
 func update_rope():
 	rope.set_point_position(1, to_local(target))

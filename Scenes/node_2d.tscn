@@ -23,7 +23,7 @@ size = Vector2(1.6000047, 1.6375003)
 [node name="Node2D" type="Node2D" unique_id=435569380]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1301633226]
-position = Vector2(572, 329)
+position = Vector2(572, -1000)
 script = ExtResource("1_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=751993562]
@@ -157,7 +157,7 @@ texture = ExtResource("7_wjtap")
 
 [node name="Gray Plat" type="StaticBody2D" parent="Testing Stage" unique_id=1451763572]
 position = Vector2(321, 850)
-scale = Vector2(1.3, 0.3)
+scale = Vector2(1.1, 0.3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Testing Stage/Gray Plat" unique_id=279758788]
 position = Vector2(0, 1000)
@@ -222,7 +222,7 @@ position = Vector2(0, 1000)
 texture = ExtResource("7_wjtap")
 
 [node name="KillBox" type="StaticBody2D" parent="." unique_id=98857903]
-position = Vector2(0, -1537)
+position = Vector2(-1557, -1581)
 
 [node name="killzone" parent="KillBox" unique_id=1872391526 instance=ExtResource("5_q6r6c")]
 position = Vector2(0, 500)
@@ -238,7 +238,7 @@ position = Vector2(0, 500)
 texture = ExtResource("7_wjtap")
 
 [node name="Spike" type="StaticBody2D" parent="." unique_id=1309092472]
-position = Vector2(1000, -1000)
+position = Vector2(-2497, -1278)
 
 [node name="killzone" parent="Spike" unique_id=1108388796 instance=ExtResource("5_q6r6c")]
 position = Vector2(0, 220)
