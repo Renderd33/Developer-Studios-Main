@@ -77,9 +77,9 @@ func _physics_process(delta: float) -> void:
 		if charMovement <= SPEED: #<---- this makes sure the speed doesn't fall below the min
 			charMovement = SPEED
 		
-		#AY FUCK, REMEMBER TO DO THIS	
+		#hey nice person, REMEMBER TO DO THIS	
 		#if (not is_on_floor() and grapC.launched):
-		#	grappleMoveCheck = 0.
+		#	grappleMoveCheck = 0
 		#else:
 		#	grappleMoveCheck = 1
 		

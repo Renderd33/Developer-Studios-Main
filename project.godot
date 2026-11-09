@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Test Project"
-run/main_scene="res://Scenes/node_2d.tscn"
+run/main_scene="uid://bd3vl17k2vyvh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Images/icon.svg"
 
