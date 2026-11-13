@@ -2,11 +2,12 @@ extends Node2D
 
 #Hooke's Law variables
 @export var rest_length = 250
-@export var stiffness = 17
+@export var stiffness = 20
 @export var damping = 5
 const max_length = 999
 
 @export var limitChecker = 0
+@export var jumpChecker = 0
 @export var limit = true
 
 @onready var player := get_parent()
@@ -23,8 +24,10 @@ func _process(delta: float) -> void:
 		limitChecker = 0
 	if Input.is_action_just_pressed("LeftClick"):
 		launch()
+		print("--------------------------")
 	if Input.is_action_just_released("LeftClick"):
 		retract()
+		
 	
 	if launched:
 		handle_grapple(delta)
@@ -40,6 +43,11 @@ func launch():
 func retract():
 	launched = false
 	rope.hide()
+	#-------------------
+	#check this because it might ruin the speeds going up and down with the grapple
+	if jumpChecker == 0:
+		player.velocity.y *= 2
+		jumpChecker += 1
 	
 func handle_grapple(delta):
 	var target_dir = player.global_position.direction_to(target)
@@ -52,7 +60,9 @@ func handle_grapple(delta):
 #whole bunch of physics shit below	
 
 #for the first if statement below, make sure to check it
-	#if target_dist > 1000:	
+	if displacement > 600:
+		retract()
+		
 	if displacement > 0:
 			
 		var spring_force_mag = stiffness * displacement
