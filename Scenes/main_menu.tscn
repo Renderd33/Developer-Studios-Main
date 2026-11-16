@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://comdl3ps72757" path="res://Images/5c938024-1c8b-4f1e-b6ac-806c547a496e.jpg" id="1_28flt"]
 [ext_resource type="Script" uid="uid://dar6g0yx3qisi" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="AudioStream" uid="uid://d3dh31l717sdf" path="res://Music/enough (Instrumental).mp3" id="3_1ehe0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hr8o"]
 texture = ExtResource("1_28flt")
@@ -108,6 +109,11 @@ theme_override_font_sizes/font_size = 121
 text = "test menu"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=817974362]
+stream = ExtResource("3_1ehe0")
+volume_db = -20.631
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_settings_pressed"]

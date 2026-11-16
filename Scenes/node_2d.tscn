@@ -42,7 +42,7 @@ zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_wjtap")
 
 [node name="RayCast2D" type="RayCast2D" parent="Player/GrappleHookController" unique_id=1571257397]
-target_position = Vector2(800, 0)
+target_position = Vector2(700, 0)
 
 [node name="Line2D" type="Line2D" parent="Player/GrappleHookController" unique_id=1496196548]
 points = PackedVector2Array(0, 0, 0, 0)

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cajcrow6ky42j"]
+
+[ext_resource type="Script" uid="uid://dwe0spyhcpxnc" path="res://game_over.gd" id="1_a1htc"]
+[ext_resource type="Texture2D" uid="uid://ce1r0wlbrh0y8" path="res://Images/dqa75mj.png" id="2_a1htc"]
+
+[node name="Control" type="Control" unique_id=9727583]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1htc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=179792699]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1436522069]
+offset_left = 531.0
+offset_top = 275.0
+offset_right = 623.0
+offset_bottom = 333.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1496204732]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
+
+[node name="Respawn?" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1556666538]
+layout_mode = 2
+text = "Respawn?"
+
+[node name="BTMM" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1252374119]
+layout_mode = 2
+text = "Back to Main Menu?"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1548286888]
+position = Vector2(576, 329)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=986593898]
+position = Vector2(583.00006, 326)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_a1htc")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Respawn?" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/BTMM" to="." method="_on_btmm_pressed"]

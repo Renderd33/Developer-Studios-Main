@@ -45,8 +45,8 @@ func retract():
 	rope.hide()
 	#-------------------
 	#check this because it might ruin the speeds going up and down with the grapple
-	if jumpChecker == 0:
-		player.velocity.y *= 2
+	if jumpChecker == 0 and not launched:
+		player.velocity.y *= 1.2
 		jumpChecker += 1
 	
 func handle_grapple(delta):
@@ -60,7 +60,7 @@ func handle_grapple(delta):
 #whole bunch of physics shit below	
 
 #for the first if statement below, make sure to check it
-	if displacement > 600:
+	if displacement > 500:
 		retract()
 		
 	if displacement > 0:
